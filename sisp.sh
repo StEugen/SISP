@@ -55,7 +55,7 @@ else
   echo "No TASKS or BUILD_CMD defined; skipping build steps."
 fi
 
-run docker build -f "\"$DOCKERFILE\"" -t "\"$FULL_IMAGE\"" .
+run docker build $DOCKER_BUILD_ARGS -f "\"$DOCKERFILE\"" -t "\"$FULL_IMAGE\"" .
 
 if [ "$PUSH_IMAGE" = "true" ]; then
   run docker push "\"$FULL_IMAGE\""
